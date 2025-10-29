@@ -196,9 +196,44 @@
                 color: #555;
             }
 
-            select {
-                padding: 4px 6px;
-                font-size: 13px;
+            .select-box {
+                position: relative;
+                width: 100px;
+
+                .selected {
+                    padding: 6px 8px;
+                    // border: 1px solid #ccc;
+                    // border-radius: 4px;
+                    // background: #fff;
+                    cursor: pointer;
+                    user-select: none;
+                }
+
+                .options {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    // max-height: 150px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background: #fff;
+                    z-index: 10;
+
+                    li {
+                        padding: 6px 8px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: #eee;
+                        }
+                    }
+                }
+
+                &.--open .options {
+                    display: block;
+                }
             }
         }
     }
