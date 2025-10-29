@@ -1,0 +1,212 @@
+// フォント設定
+@bs-font-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+@bs-body-font-family: @bs-font-sans-serif;
+@bs-body-font-size: 1.5rem;
+@bs-body-font-weight: 400;
+@bs-body-line-height: 1.5;
+
+@tabBg: #f3f3f3;
+@tabActiveBg: #fff;
+@tabBorder: #ccc;
+@tabHoverBg: #e8e8e8;
+@tabHeight: 36px;
+@transSpeed: 0.15s;
+@radius: 4px;
+
+// html, body {
+//     width: 100%;
+//     height: 100%;
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden;
+// }
+
+*, &::after, &::before {
+    box-sizing: content-box !important;
+}
+
+.tabs {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 8px;
+    background: @tabBg;
+    border-bottom: 1px solid @tabBorder;
+    user-select: none;
+
+    .tab-btn {
+        appearance: none;
+        padding: 0 12px;
+        height: @tabHeight;
+        border: 1px solid transparent;
+        border-bottom: none;
+        border-radius: @radius @radius 0 0;
+        background: transparent;
+        line-height: @tabHeight;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s;
+
+        &:hover {
+            background: @tabHoverBg;
+        }
+
+        &.--active {
+            position: relative;
+            top:  1px;
+            border: 1px solid @tabBorder;
+            background: @tabActiveBg;
+            border-bottom: 1px solid @tabActiveBg;
+            font-weight: 500;
+        }
+
+        &:focus-visible {
+            outline: 2px solid fade(@tabBorder, 50%);
+            outline-offset: -2px;
+        }
+    }
+}
+
+.tab-content-container {
+    background: #fff;
+    overflow: auto;
+
+    .tab-content {
+        display: none;
+        padding: 16px;
+
+        &.--show {
+            display: block;
+        }
+    }
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    padding: 16px;
+
+    .search_header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        input#servantName {
+            flex: 1;
+            max-width: 300px;
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 14px;
+            outline: none;
+
+            &:focus {
+                border-color: #888;
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        button#searchBtn {
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #eee;
+            font-size: 14px;
+            cursor: pointer;
+
+            &:hover {
+                background: #ddd;
+            }
+
+            &:active {
+                background: #ccc;
+            }
+        }
+    }
+    
+    .search-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .search-filter_group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            div {
+                font-size: 12px;
+                margin-bottom: 2px;
+                color: #555;
+            }
+        }
+
+        .search-filter-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+
+            button {
+                padding: 4px 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 13px;
+                cursor: pointer;
+
+                &.--active {
+                    border-color: #666;
+                    background: #888;
+                    color: #fff;
+                }
+
+                &:hover {
+                    background: #eee;
+                }
+            }
+        }
+    }
+
+    .search-result {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 8px;
+        border-top: 1px solid #ddd;
+        background: #fafafa;
+        overflow: auto;
+
+        .search-result_info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .search-result_sort {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        
+            label {
+                font-size: 13px;
+                color: #555;
+            }
+
+            select {
+                padding: 4px 6px;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .search-result_list {
+        li {
+            padding: 6px 8px;
+            border-bottom: 1px solid #eee;
+        }
+    }
+}

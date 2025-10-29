@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="stylesheet/less" href="less/main.less">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="tabs">
+        <button class="tab-btn --active" data-tab="servantSearch">サーヴァント検索</button>
+        <button class="tab-btn" data-tab="2">ダメージ計算</button>
+        <button class="tab-btn" data-tab="3">イベント用</button>
+    </div>
+    <div class="tab-content-container">
+        <div class="tab-content --show" data-tab="servantSearch">
+            <div class="search-container">
+                <div class="search_header">
+                    <input type="text" id="servantName" placeholder="サーヴァント名で検索" />
+                    <button id="searchBtn">検索</button>
+                </div>
+
+                <div class="search-filter">
+                    <div class="search-filter_group" data-filter="class">
+                        <div>クラス</div>
+                        <div class="search-filter-btns" id="filterClass">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="rarity">
+                        <div>レア度</div>
+                        <div class="search-filter-btns" id="filterRarity">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="year">
+                        <div>実装年代</div>
+                        <div class="search-filter-btns" id="filterYear">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="np-type">
+                        <div>宝具タイプ</div>
+                        <div class="search-filter-btns" id="filterNPType">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="np-range">
+                        <div>宝具範囲</div>
+                        <div class="search-filter-btns" id="filterNPRange">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="np-skill-enhance">
+                        <div>宝具/スキル強化</div>
+                        <div class="search-filter-btns" id="filterIsEnhance">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="card">
+                        <div>カード構成</div>
+                        <div class="search-filter-btns" id="filterCard">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="get">
+                        <div>入手方法</div>
+                        <div class="search-filter-btns" id="filterGet">
+                        </div>
+                    </div>
+
+                    <div class="search-filter_group" data-filter="attr">
+                        <div>属性</div>
+                        <div class="search-filter-btns" id="filterAttr">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-result">
+                    <div class="search-result_info">
+                        <div id="resultCount">検査結果: <span></span>件</div>
+
+                        <div class="search-result_sort">
+                            <label for="sortKey">並び替え:</label>
+                            <select id="sortKey">
+                                <option value="name">名前</option>
+                                <option value="no">No.順</option>
+                                <option value="release">実装順</option>
+                            </select>
+
+                            <section id="sortOrder">
+                                <option value="asc">昇順</option>
+                                <option value="desc">降順</option>
+                            </section>
+                        </div>
+                    </div>
+                    <ul id="search-result_list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content" data-tab="2">2</div>
+        <div class="tab-content" data-tab="3">3</div>
+    </div>
+</body>
+
+</html>
